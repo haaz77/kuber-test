@@ -1,5 +1,5 @@
 apiVersion: v1
 appVersion: "1.0"
-description: A Helm chart for Kubernetes
+description: The Estrogen Response Element Finder is a package for discovery of transcription factor binding sites called Estrogen Response Element in anonymous DNA. The version 1.0 of the package is developed by the BioDiscovery Group of the Institute for Infocomm Research (I2R), Singapore, as a part of a joint, and very successful, research collaboration of three research groups from the Genome Institute of Singapore (GIS), Institute for Infocomm Research (I2R), Singapore, and Karolinska Institute (Sweden). This research collaboration aims at recognition of estrogen responsive genes. Version 1.0 of the package is aimed at analysis of long DNA sequences and does not allow for any additional analyses except basic location of ERE motifs. Version 2.0 of the package is developed by the Knowledge Extraction Lab of the Institute for Infocomm Research (I2R) (ex LIT), Singapore, as a continuation of the collaboration between the institute, GIS and Karolinska Institute. Version 2.0 is aimed at interactive analyses of the identified ERE patterns by several means, including transcription factor binding site analysis and search for genes with similar local ERE environment. 
 name: test-ere
 version: 0.1.0

@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cbrc-ere
+  name: cbrc-ere
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cbrc-ere
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cbrc-ere
+    spec:
+      containers:
+      - image: haaz77/ere 
+        imagePullPolicy: ""
+        name: cbrc-ere
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          timeoutSeconds: 30
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cbrc-ere
+  labels:
+    app: cbrc-ere
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: cbrc-ere
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: www-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls: 'true'
+spec:
+  rules:
+  - host: ere.kcp.kaust.edu.sa
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: cbrc-ere
+          servicePort: 80
+  tls:
+  - hosts:
+    - 'ere.kcp.kaust.edu.sa'
+    secretName: star-kcp-crt

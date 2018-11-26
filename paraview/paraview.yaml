@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: paraview
+  name: paraview
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: paraview
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: paraview
+    spec:
+      containers:
+      - name: paraview
+        image: kcr.kaust.edu.sa/wep-apps/paraview
+        ports:
+        - containerPort: 5800
+          name: vnc
+        - containerPort: 5900
+          name: vnc1
+      imagePullSecrets:
+      - name: kcr-reg
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: paraview
+  labels:
+    app: paraview
+spec:
+  ports:
+    - name: vnc
+      port: 5800
+      protocol: TCP
+      targetPort: 5800
+    - name: vnc1
+      port: 5900
+      protocol: TCP
+      targetPort: 5900
+  selector:
+    app: paraview
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: paraview
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls: 'true'
+spec:
+  rules:
+  - host: paraview.kcp.kaust.edu.sa
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: paraview
+          servicePort: 5800
+  tls:
+  - hosts:
+    - 'paraview.kcp.kaust.edu.sa'
+    secretName: star-kcp-crt

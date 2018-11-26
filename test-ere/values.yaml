@@ -7,7 +7,6 @@ replicaCount: 1
 image:
   repository: haaz77/ere
   tag: latest
-  pullPolicy: IfNotPresent
 
 nameOverride: ""
 fullnameOverride: ""

@@ -1,13 +1,13 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "endpoints.fullname" . -}}
+{{- $fullName := include "paraview.fullname" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app.kubernetes.io/name: {{ include "endpoints.name" . }}
-    helm.sh/chart: {{ include "endpoints.chart" . }}
+    app.kubernetes.io/name: {{ include "paraview.name" . }}
+    helm.sh/chart: {{ include "paraview.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}

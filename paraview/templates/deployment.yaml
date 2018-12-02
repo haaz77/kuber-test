@@ -1,27 +1,28 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ include "endpoints.fullname" . }}
+  name: {{ include "paraview.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "endpoints.name" . }}
-    helm.sh/chart: {{ include "endpoints.chart" . }}
+    app.kubernetes.io/name: {{ include "paraview.name" . }}
+    helm.sh/chart: {{ include "paraview.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "endpoints.name" . }}
+      app.kubernetes.io/name: {{ include "paraview.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "endpoints.name" . }}
+        app.kubernetes.io/name: {{ include "paraview.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: haaz77/ere 
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
               containerPort: 80

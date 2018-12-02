@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
+  repository: haaz77/paraviewweb
+  tag: latest
   pullPolicy: IfNotPresent
 
 nameOverride: ""
@@ -17,17 +17,17 @@ service:
   port: 80
 
 ingress:
-  enabled: false
+  enabled: true
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+     kubernetes.io/ingress.class: nginx
+     kubernetes.io/tls: "true"
   path: /
   hosts:
-    - chart-example.local
+    - paraview.kcp.kaust.edu.sa
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    - secretName: star-kcp-crt
+      hosts:
+        - paraview.kcp.kaust.edu.sa
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

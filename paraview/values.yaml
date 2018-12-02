@@ -5,6 +5,7 @@
 replicaCount: 1
 
 image:
+  registry: docker.io
   repository: haaz77/paraviewweb
   tag: latest
   pullPolicy: IfNotPresent

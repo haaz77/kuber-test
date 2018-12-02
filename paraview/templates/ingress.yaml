@@ -23,8 +23,8 @@ spec:
     - host: {{$fullName}}.kcp.kaust.edu.sa
       http:
         paths:
-          - path: /
-            backend:
-              serviceName: {{ $fullName }}
-              servicePort: 5800
+        - path: /
+          backend:
+            serviceName: {{ $fullName }}
+            servicePort: 5800
 {{- end }}

@@ -3,4 +3,4 @@ appVersion: "1.0"
 description: ParaView is an open-source multiple-platform application for interactive, scientific visualization. It has a client–server architecture to facilitate remote visualization of datasets, and generates level of detail models to maintain interactive frame rates for large datasets. 
 name: paraview
 version: 5.5.2
-icon: http://simulation.org.pl/site/wp-content/uploads/2014/01/paraview-logo-1.png
+icon: https://dfsuknfbz46oq.cloudfront.net/p/icons/paraview.png 

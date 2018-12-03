@@ -1,5 +1,5 @@
 apiVersion: v1
-appVersion: "1.0"
-description: A Helm chart for Kubernetes
+appVersion: "6.0"
+description: OpenFOAM is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, including computational fluid dynamics. The code is released as free and open-source software under the GNU General Public License. 
 name: openfoam 
 version: 0.1.0

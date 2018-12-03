@@ -23,6 +23,8 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullSecrets:
+          - name: kcr-reg
           ports:
             - name: http
               containerPort: 5800

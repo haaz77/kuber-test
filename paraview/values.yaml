@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  registry: docker.io
-  repository: haaz77/paraview-gui 
+#  registry: docker.io
+  repository: kcr.kaust.edu.sa/wep-apps/paraview
   tag: latest
   pullPolicy: IfNotPresent
 

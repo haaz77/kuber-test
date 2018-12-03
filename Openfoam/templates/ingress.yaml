@@ -1,12 +1,12 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "openfoam.fullname" . -}}
+{{- $fullName := include "paraview.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app.kubernetes.io/name: {{ include "openfoam.name" . }}
-    helm.sh/chart: {{ include "openfoam.chart" . }}
+    app.kubernetes.io/name: {{ include "paraview.name" . }}
+    helm.sh/chart: {{ include "paraview.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
@@ -18,11 +18,11 @@ spec:
       - {{$fullName}}.kcp.kaust.edu.sa
       secretName: star-kcp-crt
   rules:
-    - host: {{$fullName}}.kcp.kaust.edu.sa 
+    - host: {{$fullName}}.kcp.kaust.edu.sa
       http:
         paths:
         - path: /
           backend:
             serviceName: {{ $fullName }}
-            servicePort: 80
+            servicePort: 5800
 {{- end }}

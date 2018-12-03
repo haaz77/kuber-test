@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "paraview.fullname" . }}
+  name: {{ include "openfoam.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "paraview.name" . }}
-    helm.sh/chart: {{ include "paraview.chart" . }}
+    app.kubernetes.io/name: {{ include "openfoam.name" . }}
+    helm.sh/chart: {{ include "openfoam.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: {{ include "paraview.name" . }}
+    app.kubernetes.io/name: {{ include "openfoam.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

@@ -1,4 +1,4 @@
-# Default values for paraview.
+# Default values for openfoam.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -18,17 +18,17 @@ service:
   port: 80
 
 ingress:
-  enabled: True 
+  enabled: True
 #  annotations: {}
-#     kubernetes.io/ingress.class: nginx
-#     kubernetes.io/tls: 'true'
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
 #  path: /
 #  hosts:
-#    - paraview.kcp.kaust.edu.sa
+#    - chart-example.local
 #  tls: []
-#    - secretName: star-kcp-crt
-#      hosts:
-#        - paraview.kcp.kaust.edu.sa
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

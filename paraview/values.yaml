@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   registry: docker.io
   repository: haaz77/paraview-gui 
-#  tag: latest
+  tag: latest
   pullPolicy: IfNotPresent
 
 nameOverride: ""

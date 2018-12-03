@@ -1,5 +1,6 @@
 apiVersion: v1
-appVersion: "6.0"
+appVersion: "1.0"
 description: OpenFOAM is a C++ toolbox for the development of customized numerical solvers, and pre-/post-processing utilities for the solution of continuum mechanics problems, including computational fluid dynamics. The code is released as free and open-source software under the GNU General Public License. 
 name: openfoam 
-version: 0.1.0
+version: 6.0
+icon: https://community.theubercloud.com/wp-content/uploads/2017/03/openfoam-logo-1.png

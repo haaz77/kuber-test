@@ -25,3 +25,4 @@ spec:
           backend:
             serviceName: {{ $fullName }}
             servicePort: 5800
+{{- end }}

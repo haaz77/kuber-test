@@ -16,7 +16,7 @@ spec:
   tls:
     - hosts:
       - {{$fullName}}.kcp.kaust.edu.sa
-      secretName: star-kcp-crt
+      secretName: kcp-crt
   rules:
     - host: {{$fullName}}.kcp.kaust.edu.sa 
       http:
